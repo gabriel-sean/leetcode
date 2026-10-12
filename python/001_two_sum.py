@@ -8,6 +8,23 @@ https://leetcode.com/problems/two-sum/
 class Solution:
     def twoSum(self, nums, target):
         length = len(nums)
+        for outerpointer in range(length-1):
+            for innerpointer in range(outerpointer + 1, length):
+                if nums[outerpointer] + nums[innerpointer] == target:
+                    return [outerpointer, innerpointer]
+
+
+# print(Solution().twoSum([2, 7, 11, 15], 9))
+
+
+"""" 
+
+# Earlier solution (kept for reference)
+# Same algorithm, manual pointer reset (without range) with while loops
+
+class Solution:
+    def twoSum(self, nums, target):
+        length = len(nums)
         outerpointer = 0
         innerpointer = 1
 
@@ -20,3 +37,6 @@ class Solution:
             if innerpointer == length:
                 outerpointer += 1
                 innerpointer = outerpointer + 1
+
+
+"""
