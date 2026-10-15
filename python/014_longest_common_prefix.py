@@ -1,3 +1,11 @@
+'''
+14. Longest Common Prefix [Easy]
+https://leetcode.com/problems/longest-common-prefix/
+O(n x m) time, O(1) space; horizontal scanning
+n = number of strings, m = length of shortest string
+'''
+
+
 import os
 
 def clear_console():
@@ -9,11 +17,8 @@ class Solution:
         firstword = strs[0]
         for word in strs:
             while not word.startswith(firstword):
-                firstword = firstword[:-1]
+                firstword = firstword[:-1] # strings are immutable — this creates a new string
         return firstword
-
-
-
 
 strs = []
 while True:
@@ -24,5 +29,9 @@ while True:
     strs.append(word)
 
 print(strs)
-print(Solution().longestCommonPrefix(strs))
+
+if not strs:
+    print('No words entered')
+else:
+    print(Solution().longestCommonPrefix(strs))
 
